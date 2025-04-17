@@ -2,7 +2,7 @@ package systementor.securelogin.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "customer")
 public class UserModel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

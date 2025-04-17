@@ -45,6 +45,7 @@ public class UserController {
         user.setPassword(password);
         
         userService.saveUser(user);
+        
 
         return "redirect:/login";
     }
