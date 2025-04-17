@@ -38,6 +38,14 @@ public class UserController {
          * Register a user.
          * Check if user already exists in our DB(Be a nice developer and tell the user that username is already in use)
          * */
+
+    
+        UserModel user = new UserModel();
+        user.setUsername(username);
+        user.setPassword(password);
+        
+        userService.saveUser(user);
+
         return "redirect:/login";
     }
 

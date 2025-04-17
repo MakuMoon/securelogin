@@ -19,6 +19,16 @@ public class UserService {
         *check if user already exists (VG)
     * */
 
+    public void saveUser(UserModel user) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("Användarnamnet är redan upptaget.");
+        }
+        String hashedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+        user.setPassword(hashedPassword);
+        userRepository.save(user);
+    }
+
+
     public Optional<String> findByUsername(String username) {
         return userRepository.findByUsername(username).map(UserModel::getPassword);
     }
